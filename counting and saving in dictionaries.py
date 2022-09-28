@@ -1,5 +1,5 @@
 #string
-line='My name is Bibek Thapa. I am CSIT student. My favourite animal is zebra. Currently coding in python'
+line='My name is Bibek Thapa. I am CSIT student. My favourite animal is Zebra. Currently coding in python.'
 #alphabet to compare
 alphabet=[]
 for i in range (0,26):
@@ -8,12 +8,12 @@ for i in range (0,26):
 #counting character
 count_char={}
 for ch in line:
-    df=ch.lower()
-    if (df in alphabet):
-        if (df in count_char):
-            count_char[df]+=1
+    alp=ch.lower()
+    if (alp in alphabet):
+        if (alp in count_char):
+            count_char[alp]+=1
         else:
-            count_char.update({df:1})
+            count_char.update({alp:1})
     
 print (count_char)
     
