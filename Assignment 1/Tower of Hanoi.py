@@ -9,7 +9,4 @@ def TowerOfHanoi(n,tw_source,tw_destination,tw_medium):
         #moving n-1 discs from B(medium) to C(Destination) using A(source) recursively
         TowerOfHanoi(n-1,tw_medium,tw_destination,tw_source)
         
-        
-        
-
 TowerOfHanoi(disc_count,'A','C','B')
