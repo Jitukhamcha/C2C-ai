@@ -14,6 +14,15 @@ for ch in line:
             count_char[lalp]+=1
         else:
             count_char.update({lalp:1})
-print("Counts of alphabets is as:")    
+print("Counts of alphabets are:")    
 print(count_char)    
 
+## Finding out if letter input by a user is in a word
+
+word='ALONGstringHere'
+letter=str(input("Enter letter to check : "))
+
+if letter in word:
+    print(f"Letter '{letter}' was found in word '{word}'")
+else:
+    print("Sorry No Luck")
