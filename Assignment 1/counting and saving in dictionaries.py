@@ -14,6 +14,6 @@ for ch in line:
             count_char[lalp]+=1
         else:
             count_char.update({lalp:1})
-    
+print("Counts of alphabets is as:")    
 print(count_char)    
 
