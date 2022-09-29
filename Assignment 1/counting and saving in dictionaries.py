@@ -26,3 +26,5 @@ if letter in word:
     print(f"Letter '{letter}' was found in word '{word}'")
 else:
     print("Sorry No Luck")
+
+''' You do not need to count white space, other easier approach could be used to perform same task do search them (i.e do not use Counter method) '''
