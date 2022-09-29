@@ -11,3 +11,4 @@ if  is_triangle(stick1, stick2, stick3):
     print('yes can form a triangle')
 else:
     print('no cannot form a triangle')
+'''If possible explain your logic in the form of comment'''

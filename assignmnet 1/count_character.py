@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # initalizing string
 string="this is first assignment"
 all_char={} #creating dictionary
@@ -9,3 +10,11 @@ for i in string:
 		all_char[i]=1
 #printing result
 print('count', str(all_char))
+=======
+from collections import Counter
+string = 'this is the first assignment'
+repeated= Counter(string)
+print(repeated)
+''' Do not use Counter function to count the repetetion of characters in string. 
+Search other approaches '''
+>>>>>>> 891d6731224249a0fc2015cbd5976f085c7765bd
