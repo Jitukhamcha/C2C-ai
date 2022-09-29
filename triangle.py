@@ -1,6 +1,6 @@
 #code to check if the given length are triangle or not
 #basis logic is that the sum of two sides of a triangle is always greater than the third side
-
+#if sum of two sides is euql to the third side it will form a deformed triangle
 
 #funciton declaration
 def triangle_check(a,b,c):
@@ -8,6 +8,13 @@ def triangle_check(a,b,c):
         return True
     else:
         return False
+
+def deformed_triangle_check(a,b,c):
+    if a+b ==c or b+c ==a or c+a ==b:
+        return True
+    else:
+        return False
+
 
 #input section
 a=float(input("Enter length of side a:"))
@@ -17,9 +24,12 @@ c=float(input("Enter length of side c:"))
 
 #function call
 if triangle_check(a,b,c) :
-    print("the sides are of the triangle")
+    print("the sides are of the regular triangle")
 else:
-    print(("The sides doesn't form a triangle"))
+    if deformed_triangle_check(a,b,c):
+        print("The sides form a deformed triangle")
+    else:
+        print("The sides doesn't form a triangle")
 
 
 
