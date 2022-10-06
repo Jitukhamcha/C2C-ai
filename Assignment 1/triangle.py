@@ -6,7 +6,7 @@
 def triangle_check(x):
     #sorting the list for easier comparision
     x.sort()
-    if x[2] > x[1] + x[0] :
+    if x[2] < x[1] + x[0] :
         return True
     else:
         return False
