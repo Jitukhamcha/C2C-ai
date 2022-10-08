@@ -15,11 +15,8 @@ def count_char(string):
 string = str(input('Enter a string:'))
 #removing spaces
 string=string.replace(" ","")
-print(string)
-dictionary = count_char(string)
 
+
+dictionary = count_char(string)
 print(dictionary)
 
-'''
-Spaces are also count as character. But in this case, try avoiding spaces
-'''

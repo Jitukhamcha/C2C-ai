@@ -38,7 +38,3 @@ else:
 
 
 
-'''
-Apparently it's correct,
-Just a suggestion, you can use [list] apporach [just want to see you logic/mathematics]
-'''
