@@ -20,3 +20,6 @@ dictionary = count_char(string)
 
 print(dictionary)
 
+'''
+Spaces are also count as character. But in this case, try avoiding spaces
+'''
