@@ -1,0 +1,1 @@
+My name is Bibek Thapa. I am CSIT student. My favourite animal is Zebra. Currently coding in python.
