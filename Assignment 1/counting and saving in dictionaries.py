@@ -1,28 +1,12 @@
 #string
 line='My name is Bibek Thapa. I am CSIT student. My favourite animal is Zebra. Currently coding in python.'
-#alphabet to compare
-alphabet=[]
-for i in range (0,26):
-    alphabet.append(chr(i+97))
+#dict for  alphabets
+char_count={}
+for i in range(0,26):
+    char_count[chr(i+96)]=0 #ascii for lower aplhabets set as keys
+#now to count
+for ch in line.lower():
+    if(ch in char_count):
+        char_count[ch]+=1
 
-#counting character
-count_char={}
-for ch in line:
-    lalp=ch.lower()
-    if (lalp in alphabet):
-        if (lalp in count_char):
-            count_char[lalp]+=1
-        else:
-            count_char.update({lalp:1})
-print("Counts of alphabets are:")    
-print(count_char)    
-
-## Finding out if letter input by a user is in a word
-
-word='ALONGstringHere'
-letter=str(input("Enter letter to check : "))
-
-if letter in word:
-    print(f"Letter '{letter}' was found in word '{word}'")
-else:
-    print("Sorry No Luck")
+print(char_count)
