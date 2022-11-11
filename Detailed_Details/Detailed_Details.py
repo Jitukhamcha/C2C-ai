@@ -73,12 +73,12 @@ def Detailed_Details(df,feature,outcome,max_unique_value_count):
                     indexes.append(uniq_sorted_ot.index(uniq))
                 
                 #Display
-                html+=f"Total Features {len(df)} <br>"
+                html+=f"Total Features {len(df)}  <br>"
                 html+="<center><table cellpadding=15>"
                     
                 if design==0:
                     html+="<tr>"
-                    html+=f"<td><center>{feature}</center> </td> <td>Total No. ({feature})</td> <td> Percentage ({feature}) </td>"
+                    html+=f"<td>{feature}</td> <td>Total No. ({feature})</td> <td> Percentage ({feature}) </td>"
                     for i in indexes:
                         html+=f"<td>Total {outcome}<br>({uniq_sorted_ot[i]})</td> <td>Percentage {outcome}<br>({uniq_sorted_ot[i]})</td> "
                     html+="</tr>"
@@ -273,7 +273,7 @@ def Detailed_Details(df,feature,outcome,max_unique_value_count):
                         html+=f"Mean of {outcome} ={mean_value_outcome}<br>"
                         html+="<center><table cellpadding=15>"
                         html+="<tr>"
-                        html+=f"<td><center>{feature}</center> </td> <td>Total No. <br>({feature})</td> <td> Percentage <br>({feature}) </td>"
+                        html+=f"<td>{feature} </td> <td>Total No. <br>({feature})</td> <td> Percentage <br>({feature}) </td>"
                         html+=f"<td> Total Outcome <br>Greater Than Mean<br>({mean_value_outcome})</td><td> Percentage Outcome <br>Greater Than Mean<br>({mean_value_outcome})</td>"
                         html+=f"<td> Total Outcome <br>Less Than Mean<br>({mean_value_outcome})</td><td> Percentage Outcome <br>Less Than Mean<br>({mean_value_outcome})</td>"
                         html+="</td>"
