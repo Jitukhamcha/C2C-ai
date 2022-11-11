@@ -42,8 +42,12 @@ def detectFaceOpenCVDnn(net, frame, conf_threshold=0.7):
     return frame, bboxes
 
 # load face detection model
-modelFile = "models/res10_300x300_ssd_iter_140000_fp16.caffemodel"
-configFile = "models/deploy.prototxt"
+modelFile = r"C:\\Users\\Ghost\\Desktop\\AIML\\c2c-ai\\CW-11 (Video Blur)\\opencv-image\\deploy.prototxt"
+configFile = r"C:\\Users\\Ghost\\Desktop\\AIML\\c2c-ai\\CW-11 (Video Blur)\\opencv-image\\res10_300x300_ssd_iter_140000_fp16.caffemodel"
+	
+# load the neural network model
+
+net = cv2.dnn.readNetFromCaffe(configFile, modelFile)
 net = cv2.dnn.readNetFromCaffe(configFile, modelFile)
 net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
 net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
