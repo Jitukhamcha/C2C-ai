@@ -80,7 +80,7 @@ def Detailed_Details(df,feature,outcome,max_unique_value_count):
                     html+="<tr>"
                     html+=f"<td><center>{feature}</center> </td> <td>Total No. ({feature})</td> <td> Percentage ({feature}) </td>"
                     for i in indexes:
-                        html+=f"<td>Total Outcome({uniq_sorted_ot[i]})</td> <td>Percentage Outcome({uniq_sorted_ot[i]})</td> "
+                        html+=f"<td>Total {outcome}<br>({uniq_sorted_ot[i]})</td> <td>Percentage {outcome}<br>({uniq_sorted_ot[i]})</td> "
                     html+="</tr>"
                     design=1
                 for i in range (0,len(feature_count)):
