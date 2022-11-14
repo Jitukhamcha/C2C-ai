@@ -1,5 +1,6 @@
 import cv2
 import time
+import numpy as np
 
 video_capture = cv2.VideoCapture(0)
 time.sleep(2)
@@ -36,21 +37,25 @@ def detectFaceOpenCVDnn(net, frame, conf_threshold=0.7):
 
             #  blurry rectangle to the detected face
             face = frame[right:right+left, top:top+bottom]
-            face = cv2.GaussianBlur(face,(23, 23), 30)
+            #kernel = np.ones((5, 5), np.uint8)
+            #face = cv2.GaussianBlur(face,(23, 23), 30000)
+            face=cv2.medianBlur(face,(23,23),3)
             frame[right:right+face.shape[0], top:top+face.shape[1]] = face
 
     return frame, bboxes
 
 # load face detection model
-modelFile = r"C:\\Users\\Ghost\\Desktop\\AIML\\c2c-ai\\CW-11 (Video Blur)\\opencv-image\\deploy.prototxt"
-configFile = r"C:\\Users\\Ghost\\Desktop\\AIML\\c2c-ai\\CW-11 (Video Blur)\\opencv-image\\res10_300x300_ssd_iter_140000_fp16.caffemodel"
+configFile = "C:/Users/Ghost/Desktop/AIML/c2c-ai/CW-11(VideoBlur)/opencv-image/res10_300x300_ssd_iter_140000_fp16.caffemodel"
+modelFile = "C:/Users/Ghost/Desktop/AIML/c2c-ai/CW-11(VideoBlur)/opencv-image/deploy.prototxt"
+
+
 	
 # load the neural network model
 
-net = cv2.dnn.readNetFromCaffe(configFile, modelFile)
-net = cv2.dnn.readNetFromCaffe(configFile, modelFile)
-net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
-net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
+
+net = cv2.dnn.readNetFromCaffe(modelFile,configFile)
+#net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
+#net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
 
 detectionEnabled = False
 while True:
