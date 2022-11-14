@@ -39,7 +39,7 @@ def detectFaceOpenCVDnn(net, frame, conf_threshold=0.7):
             face = frame[right:right+left, top:top+bottom]
             #kernel = np.ones((5, 5), np.uint8)
             #face = cv2.GaussianBlur(face,(23, 23), 30000)
-            face=cv2.medianBlur(face,(23,23),3)
+            face=cv2.GaussianBlur(face,(23,23),300)
             frame[right:right+face.shape[0], top:top+face.shape[1]] = face
 
     return frame, bboxes
