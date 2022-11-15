@@ -6,7 +6,7 @@ from scipy.spatial import distance as dist
 face_detector = dlib.get_frontal_face_detector()
 face_landmark = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
 
-THRESHOLD = 0.2
+THRESHOLD = 0.15
 counter = 0
 
 
@@ -40,7 +40,7 @@ while True:
             (x,y,w,h) = face_utils.rect_to_bb(rect)
 
             frame = cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0), 2)
-            frame = cv2.putText(frame, "face", (x,y-10), 1,2,(0,255,255),2)
+            frame = cv2.putText(frame, f"face{i}", (x,y-10), 1,2,(0,255,255),2)
 
             shape = face_landmark(gray,rect)
             shape = face_utils.shape_to_np(shape)
@@ -54,11 +54,15 @@ while True:
             lefteyeratio = eye_ratio(lefteye)
             righteyeratio = eye_ratio(righteye)
 
-            if (((lefteyeratio < THRESHOLD) and ( righteye > THRESHOLD)) or ((righteyeratio  < THRESHOLD) and ( lefteye > THRESHOLD))):
-                counter = counter +1
-
+            #if (((lefteyeratio < THRESHOLD) and ( righteyeratio > THRESHOLD)) or ((righteyeratio  < THRESHOLD) and ( lefteyeratio > THRESHOLD))):
+            if(lefteyeratio<THRESHOLD):
+                if(righteyeratio>THRESHOLD):
+                    counter +=1
+            elif(righteyeratio<THRESHOLD):
+                if(lefteyeratio>THRESHOLD):
+                    counter+=1
                 if  counter >= 10:
-                    frame = cv2.putText(frame, "Blink Detected!!!!!", (x,y), 1,2,(0,255,255),2)
+                    frame = cv2.putText(frame, "Wink Detected!!!!!", (10,25), 1,2,(0,255,255),2)
 
 
 
