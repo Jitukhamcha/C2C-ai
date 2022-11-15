@@ -5,8 +5,8 @@ from imutils import face_utils
 face_detector = dlib.get_frontal_face_detector()
 landmark_detector = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
 
-leftStart, leftEnd = face_utils.FACIAL_LANDMARKS_IDXS["left_eye"]
-rightStart, rightEnd = face_utils.FACIAL_LANDMARKS_IDXS["right_eye"]
+leftStart, leftEnd = face_utils.FACIAL_LANDMARKS_IDXS['left_eye']
+rightStart, rightEnd = face_utils.FACIAL_LANDMARKS_IDXS['right_eye']
 
 EAR_THRESH = 0.25
 counter = 0
