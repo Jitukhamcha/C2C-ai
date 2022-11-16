@@ -7,7 +7,7 @@ face_detector = dlib.get_frontal_face_detector()
 face_landmark = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
 
 THRESHOLD = 0.15
-counter = 0
+
 
 
 lefteyestart ,lefteyeend = face_utils.FACIAL_LANDMARKS_IDXS['left_eye']
@@ -29,6 +29,7 @@ def eye_ratio(eye):
 
 while True:
     ret, frame = cap.read()
+    frame=cv2.flip(frame,180)
     frame = cv2.resize(frame,(1280,720))
     if ret:
         #frame = cv2.rotate(frame, cv2.ROTATE_180)
@@ -46,7 +47,7 @@ while True:
             shape = face_utils.shape_to_np(shape)
 
             for (x,y) in shape:
-                frame = cv2.circle(frame,(x,y),3,(255,255,0),2)
+                frame = cv2.circle(frame,(x,y),1,(255,255,0),1)
 
             lefteye = shape[lefteyestart:lefteyeend]
             righteye = shape[righteyestart:righteyeend]
@@ -57,12 +58,12 @@ while True:
             #if (((lefteyeratio < THRESHOLD) and ( righteyeratio > THRESHOLD)) or ((righteyeratio  < THRESHOLD) and ( lefteyeratio > THRESHOLD))):
             if(lefteyeratio<THRESHOLD):
                 if(righteyeratio>THRESHOLD):
-                    counter +=1
+                    frame = cv2.putText(frame, "Wink Detected!!!!!", (10,25), 1,2,(0,255,255),2)
             elif(righteyeratio<THRESHOLD):
                 if(lefteyeratio>THRESHOLD):
-                    counter+=1
-                if  counter >= 10:
                     frame = cv2.putText(frame, "Wink Detected!!!!!", (10,25), 1,2,(0,255,255),2)
+                
+                    
 
 
 
