@@ -12,18 +12,11 @@ nose_start,nose_end=face_utils.FACIAL_LANDMARKS_IDXS['nose']
 jaw_start,jaw_end=face_utils.FACIAL_LANDMARKS_IDXS['jaw']
 righteyebrow_start,righteyebrow_end = face_utils.FACIAL_LANDMARKS_IDXS['right_eyebrow']
 
-#Read pictures
-glassess=cv2.imread('glasses.png')
-#glasses_array=np.array(glassess)
-moustache=cv2.imread('moustache.png')
-plt.imshow(glassess)
 #for landmarks points
 landmarks_points=[]
-alpha=0.3
-foreground=np.ones((100,100,3),dtype='int8')*255
 cap=cv2.VideoCapture(0)
 
-ret,img=cv2.threshold(glassess,1,255,cv2.THRESH_BINARY)
+
 
 while True:
     ret,frame=cap.read()
