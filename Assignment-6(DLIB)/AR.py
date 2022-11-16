@@ -150,7 +150,7 @@ while True:
     #showing frames or video    
     if ret:
         #cv2.imshow('Gray',gray)
-        cv2.imshow('Original',frame)    
+        cv2.imshow('Filter',frame)    
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
