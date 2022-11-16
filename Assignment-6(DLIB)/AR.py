@@ -16,8 +16,6 @@ righteyebrow_start,righteyebrow_end = face_utils.FACIAL_LANDMARKS_IDXS['right_ey
 landmarks_points=[]
 cap=cv2.VideoCapture(0)
 
-
-
 while True:
     ret,frame=cap.read()
     
