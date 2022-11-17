@@ -67,7 +67,7 @@ while True:
             moustache=cv2.resize(moustache,(dist_x1_m,dist_y1_m))
                 
             #setting Moustache frame   
-            roi=frame[up:down,right:left]
+            roi_m=frame[up:down,right:left]
                 
             #converting to gray scale
             img2gray=cv2.cvtColor(moustache,cv2.COLOR_BGR2GRAY)
@@ -79,7 +79,7 @@ while True:
             mask_inv=cv2.bitwise_not(mask)
                 
             #this ensures only moustache  is read
-            frame_bg_m=cv2.bitwise_and(roi,roi,mask=mask_inv)
+            frame_bg_m=cv2.bitwise_and(roi_m,roi_m,mask=mask_inv)
                 
             #this now ensures background to go
             moustache_fg=cv2.bitwise_and(moustache,moustache,mask=mask)
